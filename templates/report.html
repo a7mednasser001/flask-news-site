@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ report.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container py-4">
+    <a href="{{ url_for('index') }}" class="btn btn-secondary mb-3">← العودة للرئيسية</a>
+    <h1>{{ report.title }}</h1>
+    
+    {% if report.image_url %}
+    <img src="{{ report.image_url }}" class="img-fluid my-3" alt="صورة التقرير">
+    {% endif %}
+    
+    <p><strong>✍️ الكاتب:</strong> {{ report.author }}</p>
+    
+    <div class="mt-4">
+        <p>{{ report.content.replace('\n', '<br>') | safe }}</p>
+    </div>
+</div>
+</body>
+</html>
